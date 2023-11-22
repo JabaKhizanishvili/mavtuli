@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/inertia-react'
 import React from "react";
 
 export const ProductBox = (props) => {
+    console.log(props.link, 'esaa');
     return (
         <div className={`p-4 transition cursor-pointer relative max-w-sm`}>
             <div className="text-xl whitespace-nowrap mb-2">{props.name}</div>
@@ -15,7 +16,7 @@ export const ProductBox = (props) => {
                     className=" mx-auto sm:mx-0 h-full object-contain "
                 />
             </div>
-            <Link to={props.link} className="lowercase ">
+            <Link href={props.link} className="lowercase ">
                 ნახე სრულად <BiChevronRight className="inline-block" />
             </Link>
         </div>

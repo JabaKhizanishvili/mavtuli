@@ -22,7 +22,7 @@ const Home = ({ seo, page, partners, categories, products }) => {
                         <img className="inline-block align-middle mr-2" src="/assets/images/icons/svg/partners.svg" />
                         ჩვენი პარტნიორები
                     </Link>
-                    <div className="block text-center py-10">
+                    <div className="block text-center py-10 mt-8">
                         {partners.map((item) => {
                             return (
                                 <div
@@ -31,7 +31,7 @@ const Home = ({ seo, page, partners, categories, products }) => {
                                 >
                                     <div className="h-16 w-auto m-auto flex items-center justify-center mb-2">
                                         {/* <img src={item.logo} alt="" className="object-contain " /> */}
-                                        <img src={item.latest_image != null
+                                        <img style={{maxHeight:'140px'}} src={item.latest_image != null
                                             ? "/" +
                                             item.latest_image.path +
                                             "/" +
@@ -68,7 +68,7 @@ const Home = ({ seo, page, partners, categories, products }) => {
                                             "/" +
                                             e.file.title
                                             : null,
-        link: "/single-product",
+        link: route("client.singleproduct.show", e.id),
     }
                                        })
                                    } />

@@ -38,33 +38,33 @@ const Navbar = ({ seo, page }) => {
         },
     ];
 
-    const categories = [
-        {
-            link: route("client.tiles.index"),
-            text: __("client.navbar_tiles", sharedData),
-            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles.svg" />,
-        },
-        {
-            link: route("client.tiles2.index"),
-            text: __("client.navbar_tiles2", sharedData),
-            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles2.svg" />,
-        },
-        {
-            link: route("client.tiles2.index"),
-            text: __("client.navbar_laminate", sharedData),
-            icon: <img style={{ backgroundColor: "#fff", }} src="//assets/images/icons/svg/laminate.svg" />,
-        },
-        {
-            link: route("client.doors.index"),
-            text: __("client.navbar_doors", sharedData),
-            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/door.svg" />,
-        },
-        {
-            link: route("client.bathroom.index"),
-            text: __("client.navbar_bathroom", sharedData),
-            icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/bathroom.svg" />,
-        },
-    ];
+    // const categories = [
+    //     {
+    //         link: route("client.tiles.index"),
+    //         text: __("client.navbar_tiles", sharedData),
+    //         icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles.svg" />,
+    //     },
+    //     {
+    //         link: route("client.tiles2.index"),
+    //         text: __("client.navbar_tiles2", sharedData),
+    //         icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/tiles2.svg" />,
+    //     },
+    //     {
+    //         link: route("client.tiles2.index"),
+    //         text: __("client.navbar_laminate", sharedData),
+    //         icon: <img style={{ backgroundColor: "#fff", }} src="//assets/images/icons/svg/laminate.svg" />,
+    //     },
+    //     {
+    //         link: route("client.doors.index"),
+    //         text: __("client.navbar_doors", sharedData),
+    //         icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/door.svg" />,
+    //     },
+    //     {
+    //         link: route("client.bathroom.index"),
+    //         text: __("client.navbar_bathroom", sharedData),
+    //         icon: <img style={{ backgroundColor: "#fff", }} src="/assets/images/icons/svg/bathroom.svg" />,
+    //     },
+    // ];
     const langarr = {
         "ge": 'ქართული',
         "en": 'english',
@@ -74,10 +74,10 @@ const Navbar = ({ seo, page }) => {
     const langFlags = {
         "ქართული": "/assets/images/icons/ge.png",
         "English": "/assets/images/icons/en.png",
-        "russian" : "/assets/images/icons/ru.png",
+        "russian" : "/assets/images/icons/ru1.png",
         "ge": "/assets/images/icons/ge.png",
         "en": "/assets/images/icons/en.png",
-        "ru": "/assets/images/icons/ru.png",
+        "ru": "/assets/images/icons/ru1.png",
     }
     const [showMenu, setShowMenu] = useState(false);
     const { errors, gphone, gemail, gaddress, locales, currentLocale, locale_urls } = usePage().props;
@@ -95,7 +95,7 @@ const Navbar = ({ seo, page }) => {
                 <RiMenuAddFill className="w-6 h-6" />
             </button>
             <div
-                className={`fixed left-0 top-0 w-full h-screen flex flex-col justify-center items-center  lg:relative lg:h-auto bg-white lg:block transition duration-500 lg:!translate-y-0 lg:!opacity-100 ${showMenu ? "translate-y-0" : "-translate-y-full"
+                className={`fixed left-0 top-0 w-full h-screen flex flex-col justify-center items-center  lg:relative lg:h-auto bg-custom-blue-900 lg:block transition duration-500 lg:!translate-y-0 lg:!opacity-100 ${showMenu ? "translate-y-0" : "-translate-y-full"
                     }  `}
             >
                 <button
@@ -104,14 +104,14 @@ const Navbar = ({ seo, page }) => {
                 >
                     <IoCloseOutline className="w-6 h-6" />
                 </button>
-                <div className="lg:bg-custom-blue-900  lg:text-white  ">
-                    <div className="wrapper flex items-center justify-between">
-                        <div className="flex items-center whitespace-nowrap lg:mb-0 mb-5 -ml-6 lg:ml-0">
+                <div className="lg:bg-custom-blue-900 lg:text-white  ">
+                    <div className="wrapper flex  justify-between items-center space-y-center h-full">
+                        <div className="flex mt-10 items-center whitespace-nowrap space-y-center lg:mb-0 mb-5 -ml-6 lg:ml-0">
                             <Link href={route("client.home.index")} className="hidden lg:inline-block">
                                 <img src="/assets/images/icon.png" style={{ maxHeight: '80px', maxWidth:'80px'}} alt="" className="w-80  h-auto py-1" />
                                 {/* Your Logo */}
                             </Link>
-                            <div className="bg-custom-blue-100">
+                            <div className=" bg-custom-blue-100">
                                 {navigations.map((nav, index) => {
                                     return (
                                         <Link
@@ -143,7 +143,7 @@ const Navbar = ({ seo, page }) => {
                                 <div className="w-6 h-6 overflow-hidden">
                                     {/* {langarr[currentLocale]} */}
                                     {/* <img src="/assets/images/icons/ge.png" alt="" /> */}
-                                    <img src={langFlags[currentLocale]} alt="" style={{objectFit:'cover'}} />
+                                    <img src={langFlags[currentLocale]} alt="" />
                                 </div>
 
                                 <div className="absolute right-0 top-full w-full pt-2 lg:hidden group-hover:block">
@@ -151,7 +151,11 @@ const Navbar = ({ seo, page }) => {
                                     {
                                         Object.keys(locales).map((e, i) => {
                                             return (
-                                                <Link key={i} href={locale_urls[e]}> <img src={langFlags[e]} alt="" /></Link>
+                                                <Link key={i} href={locale_urls[e]}>
+                                                    <img
+                                                        // style={{ height: '20px', width: '70px' }}
+                                                        src={langFlags[e]} alt="" />
+                                                </Link>
                                             )
                                         })
                                     }
@@ -162,7 +166,7 @@ const Navbar = ({ seo, page }) => {
                 </div>
                 <div className=" box-border">
                     <div className="wrapper flex justify-between items-center ">
-                        <div>
+                        {/* <div> */}
                             {/* <div className="lg:inline-block block text-center px-4 lg:py-5 py-3 whitespace-nowrap  hover:bg-custom-blue-500/[.1] box-border group cursor-pointer relative ">
                                 {__("client.navbar_irons", sharedData)}
                                 <BiChevronDown className="inline-block -mt-1 transition group-hover:rotate-180" />
@@ -201,7 +205,7 @@ const Navbar = ({ seo, page }) => {
                                     </Link>
                                 );
                             })} */}
-                        </div>
+                        {/* </div> */}
                         {/* <div className="lg:relative lg:top-auto lg:right-auto flex items-center justify-between bg-custom-blue-900/[.1] h-12 px-5 lg:w-72 absolute top-0 right-0 w-full">
                             <input
                                 type="text "

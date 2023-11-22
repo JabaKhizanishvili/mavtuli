@@ -14,33 +14,9 @@ import { CgChevronDoubleRight } from "react-icons/cg";
 
 const SingleProduct = ({ seo, page, product }) => {
 
-    console.log(product, 'esa');
-    const otherItems = [
-        {
-            img: "/assets/images/products/1.png",
-            name: "Arabesco Marfil",
-        },
-        {
-            img: "/assets/images/products/2.png",
-            name: "PRE 311",
-        },
-        {
-            img: "/assets/images/products/3.png",
-            name: "PRE 310",
-        },
-        {
-            img: "/assets/images/products/4.png",
-            name: "Caesar Natural",
-        },
-        {
-            img: "/assets/images/products/5.png",
-            name: "Atenea Beige",
-        },
-        {
-            img: "/assets/images/products/5.png",
-            name: "Portoro Black",
-        },
-    ];
+    // console.log(product, 'esa');
+ const sharedData = usePage().props.localizations;
+
     return (
         <Layout seo={seo}>
             <div className="wrapper">
@@ -55,7 +31,7 @@ const SingleProduct = ({ seo, page, product }) => {
                 </div>
                 <div className="flex flex-col lg:flex-row items-start justify-start mb-12">
                     <div className="lg:w-1/3 lg:h-96 lg:mx-0 lg:mr-10 w-auto mx-auto mb-10 ">
-                        <img className="main_img"
+                        <img className="main_img" style={{maxHeight:'400px'}}
                             src={product.latest_image != null
                                 ? "/" +
                                 product.latest_image.path +
@@ -70,23 +46,20 @@ const SingleProduct = ({ seo, page, product }) => {
                             {product.description}
                         </div>
                         <div>მახასიათებლები</div>
-                        <div className="lowercase bg-zinc-100 px-2 mt-2 w-2/3">
+                        <div className="lowercase px-2 mt-2 w-2/3">
                             ბრენდი: {product.brand_id}
                         </div>
-                        <div className="lowercase bg-zinc-100 px-2 mt-2 w-2/3">
-                            სიგრძე: {product.width}
+                        <div className="lowercase  px-2 mt-2 w-2/3">
+                            {__("client.single_price", sharedData)}: {product.width}
                         </div>
-                        <div className="lowercase bg-zinc-100 px-2 mt-2 w-2/3">
-                            სიგანე: {product.height}
-                        </div>
-                        <div className="lowercase bg-zinc-100 px-2 mt-2 w-2/3">
+                        <div className="lowercase px-2 mt-2 w-2/3">
                             მწარმოებელი: {product.madein}
                         </div>
                     </div>
                 </div>
                 <div className="mb-5">მსგავსი პროდუქტი</div>
                 <div className="block pb-20">
-                    {otherItems.map((item, index) => {
+                    {/* {otherItems.map((item, index) => {
                         return (
                             <Link
                                 href="/single-product"
@@ -103,7 +76,8 @@ const SingleProduct = ({ seo, page, product }) => {
                                 <div className="text-sm">{item.name}</div>
                             </Link>
                         );
-                    })}
+                    })} */}
+
                 </div>
             </div>
         </Layout>
