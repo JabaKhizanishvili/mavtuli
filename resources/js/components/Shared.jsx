@@ -5,7 +5,7 @@ import React from "react";
 
 export const ProductBox = (props) => {
     return (
-        <div className={`p-4 transition hover:bg-zinc-50 relative max-w-sm`}>
+        <div className={`p-4 transition cursor-pointer relative max-w-sm`}>
             <div className="text-xl whitespace-nowrap mb-2">{props.name}</div>
             {/* <div className="opacity-50 lowercase">ზომა: {props.size}</div> */}
             <div className="w-full h-60 my-5">

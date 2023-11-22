@@ -8,6 +8,8 @@ import Layout from "../Layouts/Layout";
 
 const Tiles = ({ seo, page, products, name }) => {
 
+    console.log(products.products, 'esaa');
+
 
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
@@ -88,12 +90,13 @@ const Tiles = ({ seo, page, products, name }) => {
                         {/* show products */}
 
                         {
-                            products.length > 0 ?
+                            products.products.length > 0 ?
                                 products.products.map((item, index) => {
                             return (
 
-                                <div className={`p-4 transition hover:bg-zinc-50 relative max-w-sm`} key={index}>
+                                <div className={`p-4 transition cursor-pointer relative max-w-sm`} key={index}>
                                     <div className="text-xl whitespace-nowrap mb-2">{item.title}</div>
+                                    <div className="text-xl whitespace-nowrap mb-2">{__("client.product_price", sharedData) } : {item.price} GEL</div>
                                     {/* <div className="opacity-50 lowercase">ზომა: {item.height + ' x ' + item.width}</div> */}
                                     <div className="w-full h-60 my-5">
                                         <img src={item.file != null

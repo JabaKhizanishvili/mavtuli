@@ -48,13 +48,13 @@ const ProductSlider = ({ data }) => {
             {" "}
             <button
                 ref={prevRef}
-                className="absolute top-1/2 left-0 -translate-y-1/2 rounded-full border border-custom-blue-900 text-custom-blue-900 flex items-center justify-center w-10 h-10 hover:scale-90 transition hover:border-2  z-10"
+                className="absolute top-1/2 left-0 -translate-y-1/2 rounded-full border border-custom-blue-900 text-custom-blue-900 flex items-center justify-center w-10 h-10  transition hover:border-2  z-10"
             >
                 <CgChevronDoubleLeft className="w-5 h-5" />
             </button>
             <button
                 ref={nextRef}
-                className="absolute top-1/2 right-0 -translate-y-1/2 rounded-full border border-custom-blue-900 text-custom-blue-900 flex items-center justify-center w-10 h-10 hover:scale-90 transition hover:border-2 z-10"
+                className="absolute top-1/2 right-0 -translate-y-1/2 rounded-full border border-custom-blue-900 text-custom-blue-900 flex items-center justify-center w-10 h-10  transition z-10"
             >
                 <CgChevronDoubleRight className="w-5 h-5" />
             </button>

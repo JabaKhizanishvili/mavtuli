@@ -47,7 +47,7 @@ const Home = ({ seo, page, partners, categories, products }) => {
                 {
                     categories.map((e, i) => {
                        return (
-                           <section key={i} className=" py-10 pb-20">
+                        <section key={i} className=" py-10 pb-20">
                                <div className="wrapper">
                                    <Link href={route("client.categories.index",e.slug)} className="text-lg  hover:underline">
                                        {/* <TilesIcon className="inline-block align-middle mr-2" /> */}
