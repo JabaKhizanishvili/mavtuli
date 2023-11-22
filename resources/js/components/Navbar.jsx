@@ -15,7 +15,6 @@ import { contactInfo } from "./Data";
 const Navbar = ({ seo, page }) => {
 
     const { Categories } = usePage().props;
-
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
     const sharedData = usePage().props.localizations;
 
@@ -80,7 +79,7 @@ const Navbar = ({ seo, page }) => {
         "ru": "/assets/images/icons/ru1.png",
     }
     const [showMenu, setShowMenu] = useState(false);
-    const { errors, gphone, gemail, gaddress, locales, currentLocale, locale_urls } = usePage().props;
+    const { errors, gphone, gemail, gaddress, locales, currentLocale, pathname, locale_urls } = usePage().props;
 
     return (
         <div className="text-sm relative z-50 h-12 bg-custom-blue-900 lg:h-auto flex items-center justify-between">
@@ -113,11 +112,12 @@ const Navbar = ({ seo, page }) => {
                             </Link>
                             <div className=" bg-custom-blue-100">
                                 {navigations.map((nav, index) => {
+                                    console.log(nav.link, 'esaa', pathname );
                                     return (
                                         <Link
                                             key={index}
                                             href={nav.link}
-                                            className=" lg:ml-8 ml-3 text-xs lg:text-sm inline-block"
+                                            className={` lg:ml-8 ml-3 text-xs lg:text-sm inline-block ${nav.link == pathname ? ' text-red-200' : ''}`}
                                         >
                                             {nav.text}
                                         </Link>

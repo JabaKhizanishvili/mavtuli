@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use App\Models\Category;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Route;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -51,6 +52,7 @@ class HandleInertiaRequests extends Middleware
         $this->settings();
         $locales = config("translatable.locales");
         $currentRoute = url()->current();
+        $route = Route::current()->getName();
 
         //$categories = $this->categoryRepository->getVisibleCategoryTree();
 
