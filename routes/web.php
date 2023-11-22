@@ -117,6 +117,10 @@ Route::prefix('{locale?}')
             // Home Page
             Route::get('', [HomeController::class, 'index'])->name('client.home.index');
 
+            // productPage
+
+            Route::get('products', [HomeController::class,'products'])->name('client.products');
+
 
             Route::get('category/{category}', [\App\Http\Controllers\Client\CategoryController::class, 'show'])->name('client.category.show');
 

@@ -24,6 +24,10 @@ const Navbar = ({ seo, page }) => {
             text: __("client.navbar_main", sharedData),
         },
         {
+            link: route("client.products"),
+            text: __("client.navbar_products", sharedData),
+        },
+        {
             link: route("client.aboutus"),
             text: __("client.navbar_aboutus", sharedData),
         },
@@ -117,7 +121,7 @@ const Navbar = ({ seo, page }) => {
                                         <Link
                                             key={index}
                                             href={nav.link}
-                                            className={` lg:ml-8 ml-3 text-xs lg:text-sm inline-block ${nav.link == pathname ? ' text-red-200' : ''}`}
+                                            className={` lg:ml-8 ml-3 text-xs lg:text-sm inline-block ${nav.link == pathname ? 'text-gray-500' : ''}`}
                                         >
                                             {nav.text}
                                         </Link>
